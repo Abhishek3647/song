@@ -1,0 +1,74 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // JSON data for YouTube videos
+  const videoData = [
+    {
+      title: "Saiyaara",
+      videoUrl: "https://youtu.be/BSJa1UytM8w",
+      thumbnail: "https://i.ytimg.com/vi/BSJa1UytM8w/maxresdefault.jpg"
+    },
+    {
+      title: "Tum Hi Ho",
+      videoUrl: "https://youtu.be/7ybU_FGSmXw",
+      thumbnail: "https://i.ytimg.com/vi/7ybU_FGSmXw/maxresdefault.jpg"
+    },
+    {
+      title: "Tum Jo Aaye",
+      videoUrl: "https://youtu.be/oP-s5mwKbwk",
+      thumbnail: "https://i.ytimg.com/vi/oP-s5mwKbwk/maxresdefault.jpg"
+    },
+    {
+      title: "Channa Mereya",
+      videoUrl: "https://youtu.be/T2Fk2V7lFTk",
+      thumbnail: "https://i.ytimg.com/vi/T2Fk2V7lFTk/maxresdefault.jpg"
+    },
+    {
+      title: "Kabira",
+      videoUrl: "https://youtu.be/xP6t48u0EGM",
+      thumbnail: "https://i.ytimg.com/vi/xP6t48u0EGM/maxresdefault.jpg"
+    },
+    {
+      title: "Dil Diyan Gallan",
+      videoUrl: "https://youtu.be/VyHlgZZh0nM",
+      thumbnail: "https://i.ytimg.com/vi/VyHlgZZh0nM/maxresdefault.jpg"
+    },
+    {
+      title: "Raabta",
+      videoUrl: "https://youtu.be/Y3P9SBThs7w",
+      thumbnail: "https://i.ytimg.com/vi/Y3P9SBThs7w/maxresdefault.jpg"
+    },
+    {
+      title: "Pee Loon",
+      videoUrl: "https://youtu.be/DZsl-V3J7Bo",
+      thumbnail: "https://i.ytimg.com/vi/DZsl-V3J7Bo/maxresdefault.jpg"
+    },
+    {
+      title: "Tum Tak",
+      videoUrl: "https://youtu.be/1AGu7t23d6M",
+      thumbnail: "https://i.ytimg.com/vi/1AGu7t23d6M/maxresdefault.jpg"
+    }
+  ];
+
+  const videoCardsContainer = document.getElementById("video-cards-container");
+  const videoPlayer = document.getElementById("video-player");
+
+  // Generate the video cards dynamically from JSON data
+  videoData.forEach(video => {
+    const card = document.createElement("div");
+    card.classList.add("card", "bg-white", "shadow-md", "rounded-lg", "overflow-hidden", "transition", "hover:scale-105", "cursor-pointer");
+
+    card.innerHTML = `
+      <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg">${video.title}</h3>
+      </div>
+    `;
+
+    // When the card is clicked, play the video
+    card.addEventListener("click", function () {
+      const videoId = video.videoUrl.split("/").pop();
+      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    });
+
+    videoCardsContainer.appendChild(card);
+  });
+});
