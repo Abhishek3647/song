@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YouTube Video Cards">
+  <title>YouTube Video Cards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@1.7.0/dist/full.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="container mx-auto px-4 py-6">
+    <!-- Main heading -->
+    <h1 class="text-4xl font-bold text-center mb-8">YouTube Video Cards</h1>
+
+    <!-- Video Cards Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div id="video-cards-container" class="space-y-4"></div>
+    </div>
+
+    <!-- Video Player Section -->
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold text-center">Now Playing</h2>
+      <div class="flex justify-center mt-4">
+        <div id="video-player-container" class="w-full max-w-4xl bg-black rounded-lg shadow-lg">
+          <iframe id="video-player" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
